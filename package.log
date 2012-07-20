@@ -1,0 +1,1671 @@
+Warning: dropping plists because typeof is neither string nor boolean.
+#
+# Espresso package run Cordova/iOS (2012-20-07 00:46:53 -0700)
+#
++ export build_dir=/Users/johnnyclem/WebApps/TabBarSample/build/1342770413396
++ build_dir=/Users/johnnyclem/WebApps/TabBarSample/build/1342770413396
++ export sdk=iphonesimulator5.1
++ sdk=iphonesimulator5.1
++ export activity=Twitter
++ activity=Twitter
++ export package=com.tmp.twitter
++ package=com.tmp.twitter
++ validate-activity
++ validate-package
++ validate-build_dir
++ validate-sdk iphonesimulator
+++ mktemp -d -t Espresso-package-cordova-iOS.XXXXXXXXXX
++ cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3
++ echo ''
++ grep -q package
++ trap 'cd '\''/Users/johnnyclem/WebApps/TabBarSample/build/1342770413396'\''; rm -fR '\''/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3'\''' EXIT INT QUIT
++ ln -s /Users/johnnyclem/WebApps/TabBarSample app
++ setup-project
++ test -n ''
++ cordova_home=/Users/johnnyclem/WebApps/Espresso/package/../submodules/git-wip-us.apache.org/repos/asf/incubator-cordova-ios
+++ head -n 1 /Users/johnnyclem/WebApps/Espresso/package/../submodules/git-wip-us.apache.org/repos/asf/incubator-cordova-ios/CordovaLib/VERSION
++ cordova_version=1.9.0
++ mkdir cordova
++ cd cordova
++ tar -C /Users/johnnyclem/WebApps/Espresso/package/../submodules/git-wip-us.apache.org/repos/asf/incubator-cordova-ios -c .
++ tar -xp
++ gsedi bin/create '
+      s/sed -i .. -e \("[^"]*"\) \(.*\)/gsedi "\2" \1/
+    '
++ unset POSIXLY_CORRECT
++ bin/create /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project com.tmp.twitter Twitter
++ xcopy-htmlapp /Users/johnnyclem/WebApps/TabBarSample/build/1342770413396 iOS-project/www
++ findp /Users/johnnyclem/WebApps/TabBarSample/build/1342770413396
+  bootstrap.js
+  cache.manifest
+  core.js
+  d8-0.2.0.min.js
+  index.html
+  jquery-1.7.1.min.js
+  jquery_mobile.js
+  jquery_mobile_plugins.js
+  package.log
+  TabBarSample_App.js
+  theme
+  theme/images
+  theme/images/ajax-loader.gif
+  theme/images/ajax-loader.png
+  theme/images/Icon-72.png
+  theme/images/Icon.png
+  theme/images/Icon@2x.png
+  theme/images/icons-18-black.png
+  theme/images/icons-18-white.png
+  theme/images/icons-36-black.png
+  theme/images/icons-36-white.png
+  theme/jquery.mobile-1.1.0.min.css
+  theme/jquery_mobile_plugins.css
+  theme/style.css
+  theme/tmp.css
+  ui.js
+  underscore-min.js
++ findp iOS-project/www
+  cordova-1.9.0.js
+  index.html
++ xcopy /Users/johnnyclem/WebApps/TabBarSample/build/1342770413396 iOS-project/www '\.(html|js|css|png|gif)$'
++ findp iOS-project/www
+  bootstrap.js
+  cordova-1.9.0.js
+  core.js
+  d8-0.2.0.min.js
+  index.html
+  jquery-1.7.1.min.js
+  jquery_mobile.js
+  jquery_mobile_plugins.js
+  TabBarSample_App.js
+  theme
+  theme/images
+  theme/images/ajax-loader.gif
+  theme/images/ajax-loader.png
+  theme/images/Icon-72.png
+  theme/images/Icon.png
+  theme/images/Icon@2x.png
+  theme/images/icons-18-black.png
+  theme/images/icons-18-white.png
+  theme/images/icons-36-black.png
+  theme/images/icons-36-white.png
+  theme/jquery.mobile-1.1.0.min.css
+  theme/jquery_mobile_plugins.css
+  theme/style.css
+  theme/tmp.css
+  ui.js
+  underscore-min.js
++ gsedi iOS-project/www/index.html '
+  s|\(</\?\)[sS][cC][rR][iI][pP][tT]|\1script|g
+  s|\(<script[^>]*\) type="[^/]*/javascript"\([^>]*>\)|\1\2|g;
+'
+++ echo 1.9.0
++ gsedi iOS-project/www/index.html '
+  1,/<script/s|\(.*\)\(<\(script\).*\)|\1\<\3 src="cordova-1.9.0.js"></\3>\
+<\3>var isPhoneGap = true;</\3>\
+\2|
+'
++ setup-icons
++ /usr/libexec/PlistBuddy -x -c 'Delete :CFBundleIconFiles' iOS-project/Twitter/Twitter-info.plist
+Delete: Entry, ":CFBundleIconFiles", Does Not Exist
++ :
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles array' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ test -e iOS-project/www/theme/images/appicon-57.png
++ test true = true
++ test -e iOS-project/www/theme/images/appicon.png
++ test -e iOS-project/www/theme/images/Icon@2x.png
++ convert iOS-project/www/theme/images/Icon@2x.png -resize 57x57 iOS-project/Twitter/Resources/icons/icon.png
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles: string icon.png' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ test -e iOS-project/www/theme/images/appicon-114.png
++ test true = true
++ test -e iOS-project/www/theme/images/appicon.png
++ test -e iOS-project/www/theme/images/Icon@2x.png
++ convert iOS-project/www/theme/images/Icon@2x.png -resize 114x114 iOS-project/Twitter/Resources/icons/icon@2x.png
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles: string icon@2x.png' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ test -e iOS-project/www/theme/images/appicon-72.png
++ test true = true
++ test -e iOS-project/www/theme/images/appicon.png
++ test -e iOS-project/www/theme/images/Icon@2x.png
++ convert iOS-project/www/theme/images/Icon@2x.png -resize 72x72 iOS-project/Twitter/Resources/icons/icon-72.png
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles: string icon-72.png' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ test -e iOS-project/www/theme/images/appicon-29.png
++ test true = true
++ test -e iOS-project/www/theme/images/appicon.png
++ test -e iOS-project/www/theme/images/Icon@2x.png
++ convert iOS-project/www/theme/images/Icon@2x.png -resize 29x29 iOS-project/Twitter/Resources/icons/icon-Small.png
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles: string icon-Small.png' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ test -e iOS-project/www/theme/images/appicon-50.png
++ test true = true
++ test -e iOS-project/www/theme/images/appicon.png
++ test -e iOS-project/www/theme/images/Icon@2x.png
++ convert iOS-project/www/theme/images/Icon@2x.png -resize 50x50 iOS-project/Twitter/Resources/icons/icon-Small-50.png
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles: string icon-Small-50.png' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ test -e iOS-project/www/theme/images/appicon-58.png
++ test true = true
++ test -e iOS-project/www/theme/images/appicon.png
++ test -e iOS-project/www/theme/images/Icon@2x.png
++ convert iOS-project/www/theme/images/Icon@2x.png -resize 58x58 iOS-project/Twitter/Resources/icons/icon-Small@2x.png
++ /usr/libexec/PlistBuddy -x -c 'Add :CFBundleIconFiles: string icon-Small@2x.png' iOS-project/Twitter/Twitter-info.plist
++ read px name
++ setup-splash
++ test -e iOS-project/www/theme/images/splash.png
++ test -e iOS-project/www/theme/images/splash@2x.png
++ read orientation
++ test -e iOS-project/www/theme/images/splash-Portrait.png
++ read orientation
++ test -e iOS-project/www/theme/images/splash-PortraitUpsideDown.png
++ read orientation
++ test -e iOS-project/www/theme/images/splash-Landscape.png
++ read orientation
++ test -e iOS-project/www/theme/images/splash-LandscapeLeft.png
++ read orientation
++ test -e iOS-project/www/theme/images/splash-LandscapeRight.png
++ read orientation
++ add-plugins
++ pbxproj_plist=iOS-project/Twitter.xcodeproj/project.pbxproj
++ pbxproj_json=iOS-project/Twitter.xcodeproj/project.pbxproj.json
++ plutil -convert xml1 iOS-project/Twitter.xcodeproj/project.pbxproj -o iOS-project/Twitter.xcodeproj/project.pbxproj.xml1
++ plist2json iOS-project/Twitter.xcodeproj/project.pbxproj.xml1 iOS-project/Twitter.xcodeproj/project.pbxproj.json
+plist2json iOS-project/Twitter.xcodeproj/project.pbxproj.xml1 -> iOS-project/Twitter.xcodeproj/project.pbxproj.json
+++ json-print /Users/johnnyclem/WebApps/TabBarSample/config.json package myIOSConfig plists PhoneGap Plugins
+++ plugins2args
++ plugins='PGAccelerometer com.phonegap.accelerometer'
++ echo 'PGAccelerometer com.phonegap.accelerometer'
++ read name value
++ test -d app/plugins/PGAccelerometer
++ read name value
++ pbx-json2plist
++ cat iOS-project/Twitter.xcodeproj/project.pbxproj.json
+{"archiveVersion": "1", "classes": {}, "objects": {"3008EF9B1592A3BF000B2E69": {"path": "Twitter-Prefix.pch", "isa": "PBXFileReference", "lastKnownFileType": "sourcecode.c.h", "sourceTree": "<group>"}, "3008EF751592A3BF000B2E69": {"path": "Twitter.app", "isa": "PBXFileReference", "includeInIndex": "0", "explicitFileType": "wrapper.application", "sourceTree": "BUILT_PRODUCTS_DIR"}, "3008EFBD1592A3C0000B2E69": {"path": "Cordova.plist", "isa": "PBXFileReference", "lastKnownFileType": "text.plist.xml", "sourceTree": "<group>"}, "3008EF861592A3BF000B2E69": {"fileRef": "3008EF851592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFA21592A3BF000B2E69": {"fileRef": "3008EFA01592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFC41592A3C0000B2E69": {"path": "Classes/MainViewController.m", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "sourcecode.c.objc", "name": "MainViewController.m"}, "3008EFA51592A3BF000B2E69": {"path": "Resources/es.lproj/Localizable.strings", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "text.plist.strings", "name": "es"}, "3008EF781592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EF791592A3BF000B2E69", "3008EF7B1592A3BF000B2E69", "3008EF7D1592A3BF000B2E69", "3008EF7F1592A3BF000B2E69", "3008EF811592A3BF000B2E69", "3008EF831592A3BF000B2E69", "3008EF851592A3BF000B2E69", "3008EF871592A3BF000B2E69", "3008EF891592A3BF000B2E69", "3008EF8B1592A3BF000B2E69", "3008EF8D1592A3BF000B2E69", "3008EF8F1592A3BF000B2E69", "3008EF911592A3BF000B2E69"], "name": "Frameworks"}, "3008EFAD1592A3BF000B2E69": {"path": "Resources/se.lproj/Localizable.strings", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "text.plist.strings", "name": "se"}, "3008EF8D1592A3BF000B2E69": {"path": "System/Library/Frameworks/SystemConfiguration.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "SystemConfiguration.framework"}, "3008EF8E1592A3BF000B2E69": {"fileRef": "3008EF8D1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF831592A3BF000B2E69": {"path": "System/Library/Frameworks/AudioToolbox.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "AudioToolbox.framework"}, "3008EFAF1592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFB01592A3BF000B2E69", "3008EFB21592A3BF000B2E69", "3008EFB41592A3BF000B2E69"], "name": "icons"}, "3008EF911592A3BF000B2E69": {"path": "System/Library/Frameworks/CoreMedia.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "CoreMedia.framework"}, "3008EF7D1592A3BF000B2E69": {"path": "System/Library/Frameworks/CoreGraphics.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "CoreGraphics.framework"}, "3008EFBA1592A3BF000B2E69": {"fileRef": "3008EFB91592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFA11592A3BF000B2E69": {"path": "Resources/en.lproj/Localizable.strings", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "text.plist.strings", "name": "en"}, "3008EF791592A3BF000B2E69": {"path": "System/Library/Frameworks/Foundation.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "Foundation.framework"}, "3008EF671592A3BF000B2E69": {"isa": "PBXGroup", "children": ["3008EFD01592A3E2000B2E69", "3008EF931592A3BF000B2E69", "3008EF781592A3BF000B2E69", "3008EF761592A3BF000B2E69"], "sourceTree": "<group>"}, "3008EF6C1592A3BF000B2E69": {"isa": "XCConfigurationList", "buildConfigurations": ["3008EFCB1592A3C0000B2E69", "3008EFCC1592A3C0000B2E69"], "defaultConfigurationIsVisible": "0", "defaultConfigurationName": "Release"}, "3008EF691592A3BF000B2E69": {"knownRegions": ["en", "es", "de", "se"], "developmentRegion": "English", "projectRoot": "", "hasScannedForEncodings": "0", "compatibilityVersion": "Xcode 3.2", "mainGroup": "3008EF671592A3BF000B2E69", "attributes": {"LastUpgradeCheck": "0430"}, "isa": "PBXProject", "projectDirPath": "", "buildConfigurationList": "3008EF6C1592A3BF000B2E69", "targets": ["3008EF741592A3BF000B2E69"], "productRefGroup": "3008EF761592A3BF000B2E69"}, "3008EFBE1592A3C0000B2E69": {"fileRef": "3008EFBD1592A3C0000B2E69", "isa": "PBXBuildFile"}, "3008EFAE1592A3BF000B2E69": {"fileRef": "3008EFAC1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF9F1592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFA01592A3BF000B2E69"], "name": "en.lproj"}, "3008EF7E1592A3BF000B2E69": {"fileRef": "3008EF7D1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF971592A3BF000B2E69": {"path": "en.lproj/InfoPlist.strings", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "text.plist.strings", "name": "en"}, "3008EF821592A3BF000B2E69": {"fileRef": "3008EF811592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFC61592A3C0000B2E69": {"path": "Classes/MainViewController.xib", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "file.xib", "name": "MainViewController.xib"}, "3008EF851592A3BF000B2E69": {"path": "System/Library/Frameworks/AVFoundation.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "AVFoundation.framework"}, "3008EF721592A3BF000B2E69": {"files": [], "buildActionMask": "2147483647", "isa": "PBXFrameworksBuildPhase", "runOnlyForDeploymentPostprocessing": "0"}, "3008EFC01592A3C0000B2E69": {"path": "Classes/AppDelegate.h", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "sourcecode.c.h", "name": "AppDelegate.h"}, "3008EFB41592A3BF000B2E69": {"path": "Resources/icons/icon-72.png", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "image.png", "name": "icon-72.png"}, "3008EFD11592A3E2000B2E69": {"fileRef": "3008EFD01592A3E2000B2E69", "isa": "PBXBuildFile"}, "3008EFCD1592A3C0000B2E69": {"isa": "XCConfigurationList", "buildConfigurations": ["3008EFCE1592A3C0000B2E69", "3008EFCF1592A3C0000B2E69"], "defaultConfigurationIsVisible": "0"}, "3008EFB01592A3BF000B2E69": {"path": "Resources/icons/icon.png", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "image.png", "name": "icon.png"}, "3008EFC31592A3C0000B2E69": {"path": "Classes/MainViewController.h", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "sourcecode.c.h", "name": "MainViewController.h"}, "3008EF8A1592A3BF000B2E69": {"fileRef": "3008EF891592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF741592A3BF000B2E69": {"productReference": "3008EF751592A3BF000B2E69", "name": "Twitter", "productName": "Twitter", "dependencies": [], "productType": "com.apple.product-type.application", "buildRules": [], "isa": "PBXNativeTarget", "buildConfigurationList": "3008EFCD1592A3C0000B2E69", "buildPhases": ["3008EF6E1592A3BF000B2E69", "3008EF6F1592A3BF000B2E69", "3008EF701592A3BF000B2E69", "3008EF711592A3BF000B2E69", "3008EF721592A3BF000B2E69", "3008EF731592A3BF000B2E69"]}, "3008EFB11592A3BF000B2E69": {"fileRef": "3008EFB01592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF731592A3BF000B2E69": {"files": [], "shellPath": "/bin/bash", "buildActionMask": "2147483647", "inputPaths": [], "outputPaths": [], "shellScript": "\n\t\t\t\t\t\t\t\tchmod 755 \"$PROJECT_DIR/$PROJECT_NAME/verify.sh\"\n\t\t\t\t\t\t\t\t\"$PROJECT_DIR/$PROJECT_NAME/verify.sh\"\n\t\t\t\t\t", "runOnlyForDeploymentPostprocessing": "0", "isa": "PBXShellScriptBuildPhase"}, "3008EF811592A3BF000B2E69": {"path": "System/Library/Frameworks/AddressBookUI.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "AddressBookUI.framework"}, "3008EFA41592A3BF000B2E69": {"isa": "PBXVariantGroup", "sourceTree": "<group>", "children": ["3008EFA51592A3BF000B2E69"], "name": "Localizable.strings"}, "3008EF951592A3BF000B2E69": {"path": "Twitter-Info.plist", "isa": "PBXFileReference", "lastKnownFileType": "text.plist.xml", "sourceTree": "<group>"}, "3008EF7A1592A3BF000B2E69": {"fileRef": "3008EF791592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF8B1592A3BF000B2E69": {"path": "System/Library/Frameworks/QuartzCore.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "QuartzCore.framework"}, "3008EFBC1592A3C0000B2E69": {"fileRef": "3008EFBB1592A3C0000B2E69", "isa": "PBXBuildFile"}, "3008EFB71592A3BF000B2E69": {"path": "Resources/splash/Default~iphone.png", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "image.png", "name": "Default~iphone.png"}, "3008EF7B1592A3BF000B2E69": {"path": "System/Library/Frameworks/UIKit.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "UIKit.framework"}, "3008EFC11592A3C0000B2E69": {"path": "Classes/AppDelegate.m", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "sourcecode.c.objc", "name": "AppDelegate.m"}, "3008EFBB1592A3C0000B2E69": {"path": "Resources/Capture.bundle", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "wrapper.plug-in", "name": "Capture.bundle"}, "3008EFCB1592A3C0000B2E69": {"buildSettings": {"COPY_PHASE_STRIP": "NO", "GCC_C_LANGUAGE_STANDARD": "gnu99", "GCC_WARN_UNINITIALIZED_AUTOS": "YES", "GCC_SYMBOLS_PRIVATE_EXTERN": "NO", "GCC_WARN_UNUSED_VARIABLE": "YES", "GCC_OPTIMIZATION_LEVEL": "0", "IPHONEOS_DEPLOYMENT_TARGET": "3.0", "GCC_DYNAMIC_NO_PIC": "NO", "GCC_VERSION": "com.apple.compilers.llvm.clang.1_0", "CODE_SIGN_IDENTITY[sdk=iphoneos*]": "iPhone Developer", "GCC_PREPROCESSOR_DEFINITIONS": ["DEBUG=1", "$(inherited)"], "SDKROOT": "iphoneos", "GCC_WARN_ABOUT_RETURN_TYPE": "YES", "ALWAYS_SEARCH_USER_PATHS": "NO", "ARCHS": ["armv6", "$(ARCHS_STANDARD_32_BIT)"]}, "isa": "XCBuildConfiguration", "name": "Debug"}, "3008EFCA1592A3C0000B2E69": {"path": "verify.sh", "isa": "PBXFileReference", "lastKnownFileType": "text.script.sh", "sourceTree": "<group>"}, "3008EF701592A3BF000B2E69": {"files": ["3008EF981592A3BF000B2E69", "3008EFA21592A3BF000B2E69", "3008EFA61592A3BF000B2E69", "3008EFAA1592A3BF000B2E69", "3008EFAE1592A3BF000B2E69", "3008EFB11592A3BF000B2E69", "3008EFB31592A3BF000B2E69", "3008EFB51592A3BF000B2E69", "3008EFB81592A3BF000B2E69", "3008EFBA1592A3BF000B2E69", "3008EFBC1592A3C0000B2E69", "3008EFBE1592A3C0000B2E69", "3008EFC71592A3C0000B2E69", "3008EFD11592A3E2000B2E69"], "buildActionMask": "2147483647", "isa": "PBXResourcesBuildPhase", "runOnlyForDeploymentPostprocessing": "0"}, "3008EF7F1592A3BF000B2E69": {"path": "System/Library/Frameworks/AddressBook.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "AddressBook.framework"}, "3008EFC21592A3C0000B2E69": {"fileRef": "3008EFC11592A3C0000B2E69", "isa": "PBXBuildFile"}, "3008EF9C1592A3BF000B2E69": {"path": "/Users/Shared/Cordova/Frameworks/Cordova.framework", "isa": "PBXFileReference", "sourceTree": "<absolute>", "lastKnownFileType": "wrapper.framework", "name": "Cordova.framework"}, "3008EFB31592A3BF000B2E69": {"fileRef": "3008EFB21592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFC51592A3C0000B2E69": {"fileRef": "3008EFC41592A3C0000B2E69", "isa": "PBXBuildFile"}, "3008EFC71592A3C0000B2E69": {"fileRef": "3008EFC61592A3C0000B2E69", "isa": "PBXBuildFile"}, "3008EF761592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EF751592A3BF000B2E69"], "name": "Products"}, "3008EF9A1592A3BF000B2E69": {"fileRef": "3008EF991592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF891592A3BF000B2E69": {"path": "System/Library/Frameworks/MediaPlayer.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "MediaPlayer.framework"}, "3008EF871592A3BF000B2E69": {"path": "System/Library/Frameworks/CoreLocation.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "CoreLocation.framework"}, "3008EF711592A3BF000B2E69": {"files": [], "buildActionMask": "2147483647", "isa": "PBXSourcesBuildPhase", "runOnlyForDeploymentPostprocessing": "0"}, "3008EF7C1592A3BF000B2E69": {"fileRef": "3008EF7B1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF961592A3BF000B2E69": {"isa": "PBXVariantGroup", "sourceTree": "<group>", "children": ["3008EF971592A3BF000B2E69"], "name": "InfoPlist.strings"}, "3008EFA71592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFA81592A3BF000B2E69"], "name": "de.lproj"}, "3008EF6F1592A3BF000B2E69": {"files": ["3008EF7A1592A3BF000B2E69", "3008EF7C1592A3BF000B2E69", "3008EF7E1592A3BF000B2E69", "3008EF801592A3BF000B2E69", "3008EF821592A3BF000B2E69", "3008EF841592A3BF000B2E69", "3008EF861592A3BF000B2E69", "3008EF881592A3BF000B2E69", "3008EF8A1592A3BF000B2E69", "3008EF8C1592A3BF000B2E69", "3008EF8E1592A3BF000B2E69", "3008EF901592A3BF000B2E69", "3008EF921592A3BF000B2E69", "3008EF9D1592A3BF000B2E69"], "buildActionMask": "2147483647", "isa": "PBXFrameworksBuildPhase", "runOnlyForDeploymentPostprocessing": "0"}, "3008EF981592A3BF000B2E69": {"fileRef": "3008EF961592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFBF1592A3C0000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFC01592A3C0000B2E69", "3008EFC11592A3C0000B2E69", "3008EFC31592A3C0000B2E69", "3008EFC41592A3C0000B2E69"], "name": "Classes"}, "3008EF991592A3BF000B2E69": {"path": "main.m", "isa": "PBXFileReference", "lastKnownFileType": "sourcecode.c.objc", "sourceTree": "<group>"}, "3008EFA31592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFA41592A3BF000B2E69"], "name": "es.lproj"}, "3008EFB21592A3BF000B2E69": {"path": "Resources/icons/icon@2x.png", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "image.png", "name": "icon@2x.png"}, "3008EFA81592A3BF000B2E69": {"isa": "PBXVariantGroup", "sourceTree": "<group>", "children": ["3008EFA91592A3BF000B2E69"], "name": "Localizable.strings"}, "3008EF881592A3BF000B2E69": {"fileRef": "3008EF871592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFAB1592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFAC1592A3BF000B2E69"], "name": "se.lproj"}, "3008EF931592A3BF000B2E69": {"path": "Twitter", "isa": "PBXGroup", "children": ["3008EF9C1592A3BF000B2E69", "3008EF9E1592A3BF000B2E69", "3008EFBF1592A3C0000B2E69", "3008EFC81592A3C0000B2E69", "3008EF941592A3BF000B2E69"], "sourceTree": "<group>"}, "3008EFB91592A3BF000B2E69": {"path": "Resources/splash/Default@2x~iphone.png", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "image.png", "name": "Default@2x~iphone.png"}, "3008EF8F1592A3BF000B2E69": {"path": "System/Library/Frameworks/MobileCoreServices.framework", "isa": "PBXFileReference", "sourceTree": "SDKROOT", "lastKnownFileType": "wrapper.framework", "name": "MobileCoreServices.framework"}, "3008EFCF1592A3C0000B2E69": {"buildSettings": {"COPY_PHASE_STRIP": "YES", "INFOPLIST_FILE": "Twitter/Twitter-Info.plist", "FRAMEWORK_SEARCH_PATHS": "/Users/Shared/Cordova/Frameworks", "VALIDATE_PRODUCT": "YES", "GCC_PREFIX_HEADER": "Twitter/Twitter-Prefix.pch", "TARGETED_DEVICE_FAMILY": "1,2", "OTHER_LDFLAGS": ["-weak_framework", "UIKit", "-weak_framework", "AVFoundation", "-weak_framework", "CoreMedia", "-weak-lSystem"], "WRAPPER_EXTENSION": "app", "DEBUG_INFORMATION_FORMAT": "dwarf-with-dsym", "GCC_PRECOMPILE_PREFIX_HEADER": "YES", "PRODUCT_NAME": "$(TARGET_NAME)", "ALWAYS_SEARCH_USER_PATHS": "YES", "GCC_PREPROCESSOR_DEFINITIONS": ["NDEBUG=1,", "CORDOVA_FRAMEWORK=1"]}, "isa": "XCBuildConfiguration", "name": "Release"}, "3008EF921592A3BF000B2E69": {"fileRef": "3008EF911592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF9D1592A3BF000B2E69": {"fileRef": "3008EF9C1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EF8C1592A3BF000B2E69": {"fileRef": "3008EF8B1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFAC1592A3BF000B2E69": {"isa": "PBXVariantGroup", "sourceTree": "<group>", "children": ["3008EFAD1592A3BF000B2E69"], "name": "Localizable.strings"}, "3008EFA61592A3BF000B2E69": {"fileRef": "3008EFA41592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFA91592A3BF000B2E69": {"path": "Resources/de.lproj/Localizable.strings", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "text.plist.strings", "name": "de"}, "3008EF801592A3BF000B2E69": {"fileRef": "3008EF7F1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFC91592A3C0000B2E69": {"path": "Plugins/README", "isa": "PBXFileReference", "sourceTree": "<group>", "lastKnownFileType": "text", "name": "README"}, "3008EF841592A3BF000B2E69": {"fileRef": "3008EF831592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFCE1592A3C0000B2E69": {"buildSettings": {"COPY_PHASE_STRIP": "NO", "INFOPLIST_FILE": "Twitter/Twitter-Info.plist", "FRAMEWORK_SEARCH_PATHS": "/Users/Shared/Cordova/Frameworks", "GCC_PREFIX_HEADER": "Twitter/Twitter-Prefix.pch", "TARGETED_DEVICE_FAMILY": "1,2", "OTHER_LDFLAGS": ["-weak_framework", "UIKit", "-weak_framework", "AVFoundation", "-weak_framework", "CoreMedia", "-weak-lSystem"], "GCC_DYNAMIC_NO_PIC": "NO", "WRAPPER_EXTENSION": "app", "GCC_PRECOMPILE_PREFIX_HEADER": "YES", "PRODUCT_NAME": "$(TARGET_NAME)", "ALWAYS_SEARCH_USER_PATHS": "YES", "GCC_PREPROCESSOR_DEFINITIONS": ["DEBUG=1,", "CORDOVA_FRAMEWORK=1"]}, "isa": "XCBuildConfiguration", "name": "Debug"}, "3008EF9E1592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFBB1592A3C0000B2E69", "3008EF9F1592A3BF000B2E69", "3008EFA31592A3BF000B2E69", "3008EFA71592A3BF000B2E69", "3008EFAB1592A3BF000B2E69", "3008EFAF1592A3BF000B2E69", "3008EFB61592A3BF000B2E69"], "name": "Resources"}, "3008EFB61592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFB71592A3BF000B2E69", "3008EFB91592A3BF000B2E69"], "name": "splash"}, "3008EFCC1592A3C0000B2E69": {"buildSettings": {"COPY_PHASE_STRIP": "YES", "GCC_VERSION": "com.apple.compilers.llvm.clang.1_0", "GCC_WARN_UNINITIALIZED_AUTOS": "YES", "VALIDATE_PRODUCT": "YES", "CODE_SIGN_IDENTITY[sdk=iphoneos*]": "iPhone Developer", "GCC_WARN_UNUSED_VARIABLE": "YES", "IPHONEOS_DEPLOYMENT_TARGET": "3.0", "GCC_C_LANGUAGE_STANDARD": "gnu99", "SDKROOT": "iphoneos", "GCC_WARN_ABOUT_RETURN_TYPE": "YES", "ALWAYS_SEARCH_USER_PATHS": "NO", "ARCHS": ["armv6", "$(ARCHS_STANDARD_32_BIT)"]}, "isa": "XCBuildConfiguration", "name": "Release"}, "3008EFB81592A3BF000B2E69": {"fileRef": "3008EFB71592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFB51592A3BF000B2E69": {"fileRef": "3008EFB41592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFAA1592A3BF000B2E69": {"fileRef": "3008EFA81592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFC81592A3C0000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EFC91592A3C0000B2E69"], "name": "Plugins"}, "3008EF941592A3BF000B2E69": {"isa": "PBXGroup", "sourceTree": "<group>", "children": ["3008EF951592A3BF000B2E69", "3008EF961592A3BF000B2E69", "3008EF991592A3BF000B2E69", "3008EF9B1592A3BF000B2E69", "3008EFBD1592A3C0000B2E69", "3008EFC61592A3C0000B2E69", "3008EFCA1592A3C0000B2E69"], "name": "Supporting Files"}, "3008EFD01592A3E2000B2E69": {"path": "www", "isa": "PBXFileReference", "lastKnownFileType": "folder", "sourceTree": "<group>"}, "3008EF901592A3BF000B2E69": {"fileRef": "3008EF8F1592A3BF000B2E69", "isa": "PBXBuildFile"}, "3008EFA01592A3BF000B2E69": {"isa": "PBXVariantGroup", "sourceTree": "<group>", "children": ["3008EFA11592A3BF000B2E69"], "name": "Localizable.strings"}, "3008EF6E1592A3BF000B2E69": {"files": ["3008EF9A1592A3BF000B2E69", "3008EFC21592A3C0000B2E69", "3008EFC51592A3C0000B2E69"], "buildActionMask": "2147483647", "isa": "PBXSourcesBuildPhase", "runOnlyForDeploymentPostprocessing": "0"}}, "objectVersion": "46", "rootObject": "3008EF691592A3BF000B2E69"}+ cat iOS-project/Twitter.xcodeproj/project.pbxproj
+{
+  "archiveVersion" = "1";
+  "classes" = {
+  };
+  "objects" = {
+    "3008EF9B1592A3BF000B2E69" = {
+      "path" = "Twitter-Prefix.pch";
+      "isa" = "PBXFileReference";
+      "lastKnownFileType" = "sourcecode.c.h";
+      "sourceTree" = "<group>";
+    };
+    "3008EF751592A3BF000B2E69" = {
+      "path" = "Twitter.app";
+      "isa" = "PBXFileReference";
+      "includeInIndex" = "0";
+      "explicitFileType" = "wrapper.application";
+      "sourceTree" = "BUILT_PRODUCTS_DIR";
+    };
+    "3008EFBD1592A3C0000B2E69" = {
+      "path" = "Cordova.plist";
+      "isa" = "PBXFileReference";
+      "lastKnownFileType" = "text.plist.xml";
+      "sourceTree" = "<group>";
+    };
+    "3008EF861592A3BF000B2E69" = {
+      "fileRef" = "3008EF851592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFA21592A3BF000B2E69" = {
+      "fileRef" = "3008EFA01592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFC41592A3C0000B2E69" = {
+      "path" = "Classes/MainViewController.m";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "sourcecode.c.objc";
+      "name" = "MainViewController.m";
+    };
+    "3008EFA51592A3BF000B2E69" = {
+      "path" = "Resources/es.lproj/Localizable.strings";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "text.plist.strings";
+      "name" = "es";
+    };
+    "3008EF781592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EF791592A3BF000B2E69",
+        "3008EF7B1592A3BF000B2E69",
+        "3008EF7D1592A3BF000B2E69",
+        "3008EF7F1592A3BF000B2E69",
+        "3008EF811592A3BF000B2E69",
+        "3008EF831592A3BF000B2E69",
+        "3008EF851592A3BF000B2E69",
+        "3008EF871592A3BF000B2E69",
+        "3008EF891592A3BF000B2E69",
+        "3008EF8B1592A3BF000B2E69",
+        "3008EF8D1592A3BF000B2E69",
+        "3008EF8F1592A3BF000B2E69",
+        "3008EF911592A3BF000B2E69",
+      );
+      "name" = "Frameworks";
+    };
+    "3008EFAD1592A3BF000B2E69" = {
+      "path" = "Resources/se.lproj/Localizable.strings";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "text.plist.strings";
+      "name" = "se";
+    };
+    "3008EF8D1592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/SystemConfiguration.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "SystemConfiguration.framework";
+    };
+    "3008EF8E1592A3BF000B2E69" = {
+      "fileRef" = "3008EF8D1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF831592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/AudioToolbox.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "AudioToolbox.framework";
+    };
+    "3008EFAF1592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFB01592A3BF000B2E69",
+        "3008EFB21592A3BF000B2E69",
+        "3008EFB41592A3BF000B2E69",
+      );
+      "name" = "icons";
+    };
+    "3008EF911592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/CoreMedia.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "CoreMedia.framework";
+    };
+    "3008EF7D1592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/CoreGraphics.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "CoreGraphics.framework";
+    };
+    "3008EFBA1592A3BF000B2E69" = {
+      "fileRef" = "3008EFB91592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFA11592A3BF000B2E69" = {
+      "path" = "Resources/en.lproj/Localizable.strings";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "text.plist.strings";
+      "name" = "en";
+    };
+    "3008EF791592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/Foundation.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "Foundation.framework";
+    };
+    "3008EF671592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "children" = (
+        "3008EFD01592A3E2000B2E69",
+        "3008EF931592A3BF000B2E69",
+        "3008EF781592A3BF000B2E69",
+        "3008EF761592A3BF000B2E69",
+      );
+      "sourceTree" = "<group>";
+    };
+    "3008EF6C1592A3BF000B2E69" = {
+      "isa" = "XCConfigurationList";
+      "buildConfigurations" = (
+        "3008EFCB1592A3C0000B2E69",
+        "3008EFCC1592A3C0000B2E69",
+      );
+      "defaultConfigurationIsVisible" = "0";
+      "defaultConfigurationName" = "Release";
+    };
+    "3008EF691592A3BF000B2E69" = {
+      "knownRegions" = (
+        "en",
+        "es",
+        "de",
+        "se",
+      );
+      "developmentRegion" = "English";
+      "projectRoot" = "";
+      "hasScannedForEncodings" = "0";
+      "compatibilityVersion" = "Xcode 3.2";
+      "mainGroup" = "3008EF671592A3BF000B2E69";
+      "attributes" = {
+        "LastUpgradeCheck" = "0430";
+      };
+      "isa" = "PBXProject";
+      "projectDirPath" = "";
+      "buildConfigurationList" = "3008EF6C1592A3BF000B2E69";
+      "targets" = (
+        "3008EF741592A3BF000B2E69",
+      );
+      "productRefGroup" = "3008EF761592A3BF000B2E69";
+    };
+    "3008EFBE1592A3C0000B2E69" = {
+      "fileRef" = "3008EFBD1592A3C0000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFAE1592A3BF000B2E69" = {
+      "fileRef" = "3008EFAC1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF9F1592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFA01592A3BF000B2E69",
+      );
+      "name" = "en.lproj";
+    };
+    "3008EF7E1592A3BF000B2E69" = {
+      "fileRef" = "3008EF7D1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF971592A3BF000B2E69" = {
+      "path" = "en.lproj/InfoPlist.strings";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "text.plist.strings";
+      "name" = "en";
+    };
+    "3008EF821592A3BF000B2E69" = {
+      "fileRef" = "3008EF811592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFC61592A3C0000B2E69" = {
+      "path" = "Classes/MainViewController.xib";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "file.xib";
+      "name" = "MainViewController.xib";
+    };
+    "3008EF851592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/AVFoundation.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "AVFoundation.framework";
+    };
+    "3008EF721592A3BF000B2E69" = {
+      "files" = (
+      );
+      "buildActionMask" = "2147483647";
+      "isa" = "PBXFrameworksBuildPhase";
+      "runOnlyForDeploymentPostprocessing" = "0";
+    };
+    "3008EFC01592A3C0000B2E69" = {
+      "path" = "Classes/AppDelegate.h";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "sourcecode.c.h";
+      "name" = "AppDelegate.h";
+    };
+    "3008EFB41592A3BF000B2E69" = {
+      "path" = "Resources/icons/icon-72.png";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "image.png";
+      "name" = "icon-72.png";
+    };
+    "3008EFD11592A3E2000B2E69" = {
+      "fileRef" = "3008EFD01592A3E2000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFCD1592A3C0000B2E69" = {
+      "isa" = "XCConfigurationList";
+      "buildConfigurations" = (
+        "3008EFCE1592A3C0000B2E69",
+        "3008EFCF1592A3C0000B2E69",
+      );
+      "defaultConfigurationIsVisible" = "0";
+    };
+    "3008EFB01592A3BF000B2E69" = {
+      "path" = "Resources/icons/icon.png";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "image.png";
+      "name" = "icon.png";
+    };
+    "3008EFC31592A3C0000B2E69" = {
+      "path" = "Classes/MainViewController.h";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "sourcecode.c.h";
+      "name" = "MainViewController.h";
+    };
+    "3008EF8A1592A3BF000B2E69" = {
+      "fileRef" = "3008EF891592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF741592A3BF000B2E69" = {
+      "productReference" = "3008EF751592A3BF000B2E69";
+      "name" = "Twitter";
+      "productName" = "Twitter";
+      "dependencies" = (
+      );
+      "productType" = "com.apple.product-type.application";
+      "buildRules" = (
+      );
+      "isa" = "PBXNativeTarget";
+      "buildConfigurationList" = "3008EFCD1592A3C0000B2E69";
+      "buildPhases" = (
+        "3008EF6E1592A3BF000B2E69",
+        "3008EF6F1592A3BF000B2E69",
+        "3008EF701592A3BF000B2E69",
+        "3008EF711592A3BF000B2E69",
+        "3008EF721592A3BF000B2E69",
+        "3008EF731592A3BF000B2E69",
+      );
+    };
+    "3008EFB11592A3BF000B2E69" = {
+      "fileRef" = "3008EFB01592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF731592A3BF000B2E69" = {
+      "files" = (
+      );
+      "shellPath" = "/bin/bash";
+      "buildActionMask" = "2147483647";
+      "inputPaths" = (
+      );
+      "outputPaths" = (
+      );
+      "shellScript" = "\n\t\t\t\t\t\t\t\tchmod 755 \"$PROJECT_DIR/$PROJECT_NAME/verify.sh\"\n\t\t\t\t\t\t\t\t\"$PROJECT_DIR/$PROJECT_NAME/verify.sh\"\n\t\t\t\t\t";
+      "runOnlyForDeploymentPostprocessing" = "0";
+      "isa" = "PBXShellScriptBuildPhase";
+    };
+    "3008EF811592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/AddressBookUI.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "AddressBookUI.framework";
+    };
+    "3008EFA41592A3BF000B2E69" = {
+      "isa" = "PBXVariantGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFA51592A3BF000B2E69",
+      );
+      "name" = "Localizable.strings";
+    };
+    "3008EF951592A3BF000B2E69" = {
+      "path" = "Twitter-Info.plist";
+      "isa" = "PBXFileReference";
+      "lastKnownFileType" = "text.plist.xml";
+      "sourceTree" = "<group>";
+    };
+    "3008EF7A1592A3BF000B2E69" = {
+      "fileRef" = "3008EF791592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF8B1592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/QuartzCore.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "QuartzCore.framework";
+    };
+    "3008EFBC1592A3C0000B2E69" = {
+      "fileRef" = "3008EFBB1592A3C0000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFB71592A3BF000B2E69" = {
+      "path" = "Resources/splash/Default~iphone.png";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "image.png";
+      "name" = "Default~iphone.png";
+    };
+    "3008EF7B1592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/UIKit.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "UIKit.framework";
+    };
+    "3008EFC11592A3C0000B2E69" = {
+      "path" = "Classes/AppDelegate.m";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "sourcecode.c.objc";
+      "name" = "AppDelegate.m";
+    };
+    "3008EFBB1592A3C0000B2E69" = {
+      "path" = "Resources/Capture.bundle";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "wrapper.plug-in";
+      "name" = "Capture.bundle";
+    };
+    "3008EFCB1592A3C0000B2E69" = {
+      "buildSettings" = {
+        "COPY_PHASE_STRIP" = "NO";
+        "GCC_C_LANGUAGE_STANDARD" = "gnu99";
+        "GCC_WARN_UNINITIALIZED_AUTOS" = "YES";
+        "GCC_SYMBOLS_PRIVATE_EXTERN" = "NO";
+        "GCC_WARN_UNUSED_VARIABLE" = "YES";
+        "GCC_OPTIMIZATION_LEVEL" = "0";
+        "IPHONEOS_DEPLOYMENT_TARGET" = "3.0";
+        "GCC_DYNAMIC_NO_PIC" = "NO";
+        "GCC_VERSION" = "com.apple.compilers.llvm.clang.1_0";
+        "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+        "GCC_PREPROCESSOR_DEFINITIONS" = (
+          "DEBUG=1",
+          "$(inherited)",
+        );
+        "SDKROOT" = "iphoneos";
+        "GCC_WARN_ABOUT_RETURN_TYPE" = "YES";
+        "ALWAYS_SEARCH_USER_PATHS" = "NO";
+        "ARCHS" = (
+          "armv6",
+          "$(ARCHS_STANDARD_32_BIT)",
+        );
+      };
+      "isa" = "XCBuildConfiguration";
+      "name" = "Debug";
+    };
+    "3008EFCA1592A3C0000B2E69" = {
+      "path" = "verify.sh";
+      "isa" = "PBXFileReference";
+      "lastKnownFileType" = "text.script.sh";
+      "sourceTree" = "<group>";
+    };
+    "3008EF701592A3BF000B2E69" = {
+      "files" = (
+        "3008EF981592A3BF000B2E69",
+        "3008EFA21592A3BF000B2E69",
+        "3008EFA61592A3BF000B2E69",
+        "3008EFAA1592A3BF000B2E69",
+        "3008EFAE1592A3BF000B2E69",
+        "3008EFB11592A3BF000B2E69",
+        "3008EFB31592A3BF000B2E69",
+        "3008EFB51592A3BF000B2E69",
+        "3008EFB81592A3BF000B2E69",
+        "3008EFBA1592A3BF000B2E69",
+        "3008EFBC1592A3C0000B2E69",
+        "3008EFBE1592A3C0000B2E69",
+        "3008EFC71592A3C0000B2E69",
+        "3008EFD11592A3E2000B2E69",
+      );
+      "buildActionMask" = "2147483647";
+      "isa" = "PBXResourcesBuildPhase";
+      "runOnlyForDeploymentPostprocessing" = "0";
+    };
+    "3008EF7F1592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/AddressBook.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "AddressBook.framework";
+    };
+    "3008EFC21592A3C0000B2E69" = {
+      "fileRef" = "3008EFC11592A3C0000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF9C1592A3BF000B2E69" = {
+      "path" = "/Users/Shared/Cordova/Frameworks/Cordova.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<absolute>";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "Cordova.framework";
+    };
+    "3008EFB31592A3BF000B2E69" = {
+      "fileRef" = "3008EFB21592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFC51592A3C0000B2E69" = {
+      "fileRef" = "3008EFC41592A3C0000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFC71592A3C0000B2E69" = {
+      "fileRef" = "3008EFC61592A3C0000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF761592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EF751592A3BF000B2E69",
+      );
+      "name" = "Products";
+    };
+    "3008EF9A1592A3BF000B2E69" = {
+      "fileRef" = "3008EF991592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF891592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/MediaPlayer.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "MediaPlayer.framework";
+    };
+    "3008EF871592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/CoreLocation.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "CoreLocation.framework";
+    };
+    "3008EF711592A3BF000B2E69" = {
+      "files" = (
+      );
+      "buildActionMask" = "2147483647";
+      "isa" = "PBXSourcesBuildPhase";
+      "runOnlyForDeploymentPostprocessing" = "0";
+    };
+    "3008EF7C1592A3BF000B2E69" = {
+      "fileRef" = "3008EF7B1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF961592A3BF000B2E69" = {
+      "isa" = "PBXVariantGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EF971592A3BF000B2E69",
+      );
+      "name" = "InfoPlist.strings";
+    };
+    "3008EFA71592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFA81592A3BF000B2E69",
+      );
+      "name" = "de.lproj";
+    };
+    "3008EF6F1592A3BF000B2E69" = {
+      "files" = (
+        "3008EF7A1592A3BF000B2E69",
+        "3008EF7C1592A3BF000B2E69",
+        "3008EF7E1592A3BF000B2E69",
+        "3008EF801592A3BF000B2E69",
+        "3008EF821592A3BF000B2E69",
+        "3008EF841592A3BF000B2E69",
+        "3008EF861592A3BF000B2E69",
+        "3008EF881592A3BF000B2E69",
+        "3008EF8A1592A3BF000B2E69",
+        "3008EF8C1592A3BF000B2E69",
+        "3008EF8E1592A3BF000B2E69",
+        "3008EF901592A3BF000B2E69",
+        "3008EF921592A3BF000B2E69",
+        "3008EF9D1592A3BF000B2E69",
+      );
+      "buildActionMask" = "2147483647";
+      "isa" = "PBXFrameworksBuildPhase";
+      "runOnlyForDeploymentPostprocessing" = "0";
+    };
+    "3008EF981592A3BF000B2E69" = {
+      "fileRef" = "3008EF961592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFBF1592A3C0000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFC01592A3C0000B2E69",
+        "3008EFC11592A3C0000B2E69",
+        "3008EFC31592A3C0000B2E69",
+        "3008EFC41592A3C0000B2E69",
+      );
+      "name" = "Classes";
+    };
+    "3008EF991592A3BF000B2E69" = {
+      "path" = "main.m";
+      "isa" = "PBXFileReference";
+      "lastKnownFileType" = "sourcecode.c.objc";
+      "sourceTree" = "<group>";
+    };
+    "3008EFA31592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFA41592A3BF000B2E69",
+      );
+      "name" = "es.lproj";
+    };
+    "3008EFB21592A3BF000B2E69" = {
+      "path" = "Resources/icons/icon@2x.png";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "image.png";
+      "name" = "icon@2x.png";
+    };
+    "3008EFA81592A3BF000B2E69" = {
+      "isa" = "PBXVariantGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFA91592A3BF000B2E69",
+      );
+      "name" = "Localizable.strings";
+    };
+    "3008EF881592A3BF000B2E69" = {
+      "fileRef" = "3008EF871592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFAB1592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFAC1592A3BF000B2E69",
+      );
+      "name" = "se.lproj";
+    };
+    "3008EF931592A3BF000B2E69" = {
+      "path" = "Twitter";
+      "isa" = "PBXGroup";
+      "children" = (
+        "3008EF9C1592A3BF000B2E69",
+        "3008EF9E1592A3BF000B2E69",
+        "3008EFBF1592A3C0000B2E69",
+        "3008EFC81592A3C0000B2E69",
+        "3008EF941592A3BF000B2E69",
+      );
+      "sourceTree" = "<group>";
+    };
+    "3008EFB91592A3BF000B2E69" = {
+      "path" = "Resources/splash/Default@2x~iphone.png";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "image.png";
+      "name" = "Default@2x~iphone.png";
+    };
+    "3008EF8F1592A3BF000B2E69" = {
+      "path" = "System/Library/Frameworks/MobileCoreServices.framework";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "SDKROOT";
+      "lastKnownFileType" = "wrapper.framework";
+      "name" = "MobileCoreServices.framework";
+    };
+    "3008EFCF1592A3C0000B2E69" = {
+      "buildSettings" = {
+        "COPY_PHASE_STRIP" = "YES";
+        "INFOPLIST_FILE" = "Twitter/Twitter-Info.plist";
+        "FRAMEWORK_SEARCH_PATHS" = "/Users/Shared/Cordova/Frameworks";
+        "VALIDATE_PRODUCT" = "YES";
+        "GCC_PREFIX_HEADER" = "Twitter/Twitter-Prefix.pch";
+        "TARGETED_DEVICE_FAMILY" = "1,2";
+        "OTHER_LDFLAGS" = (
+          "-weak_framework",
+          "UIKit",
+          "-weak_framework",
+          "AVFoundation",
+          "-weak_framework",
+          "CoreMedia",
+          "-weak-lSystem",
+        );
+        "WRAPPER_EXTENSION" = "app";
+        "DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+        "GCC_PRECOMPILE_PREFIX_HEADER" = "YES";
+        "PRODUCT_NAME" = "$(TARGET_NAME)";
+        "ALWAYS_SEARCH_USER_PATHS" = "YES";
+        "GCC_PREPROCESSOR_DEFINITIONS" = (
+          "NDEBUG=1,",
+          "CORDOVA_FRAMEWORK=1",
+        );
+      };
+      "isa" = "XCBuildConfiguration";
+      "name" = "Release";
+    };
+    "3008EF921592A3BF000B2E69" = {
+      "fileRef" = "3008EF911592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF9D1592A3BF000B2E69" = {
+      "fileRef" = "3008EF9C1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EF8C1592A3BF000B2E69" = {
+      "fileRef" = "3008EF8B1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFAC1592A3BF000B2E69" = {
+      "isa" = "PBXVariantGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFAD1592A3BF000B2E69",
+      );
+      "name" = "Localizable.strings";
+    };
+    "3008EFA61592A3BF000B2E69" = {
+      "fileRef" = "3008EFA41592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFA91592A3BF000B2E69" = {
+      "path" = "Resources/de.lproj/Localizable.strings";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "text.plist.strings";
+      "name" = "de";
+    };
+    "3008EF801592A3BF000B2E69" = {
+      "fileRef" = "3008EF7F1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFC91592A3C0000B2E69" = {
+      "path" = "Plugins/README";
+      "isa" = "PBXFileReference";
+      "sourceTree" = "<group>";
+      "lastKnownFileType" = "text";
+      "name" = "README";
+    };
+    "3008EF841592A3BF000B2E69" = {
+      "fileRef" = "3008EF831592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFCE1592A3C0000B2E69" = {
+      "buildSettings" = {
+        "COPY_PHASE_STRIP" = "NO";
+        "INFOPLIST_FILE" = "Twitter/Twitter-Info.plist";
+        "FRAMEWORK_SEARCH_PATHS" = "/Users/Shared/Cordova/Frameworks";
+        "GCC_PREFIX_HEADER" = "Twitter/Twitter-Prefix.pch";
+        "TARGETED_DEVICE_FAMILY" = "1,2";
+        "OTHER_LDFLAGS" = (
+          "-weak_framework",
+          "UIKit",
+          "-weak_framework",
+          "AVFoundation",
+          "-weak_framework",
+          "CoreMedia",
+          "-weak-lSystem",
+        );
+        "GCC_DYNAMIC_NO_PIC" = "NO";
+        "WRAPPER_EXTENSION" = "app";
+        "GCC_PRECOMPILE_PREFIX_HEADER" = "YES";
+        "PRODUCT_NAME" = "$(TARGET_NAME)";
+        "ALWAYS_SEARCH_USER_PATHS" = "YES";
+        "GCC_PREPROCESSOR_DEFINITIONS" = (
+          "DEBUG=1,",
+          "CORDOVA_FRAMEWORK=1",
+        );
+      };
+      "isa" = "XCBuildConfiguration";
+      "name" = "Debug";
+    };
+    "3008EF9E1592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFBB1592A3C0000B2E69",
+        "3008EF9F1592A3BF000B2E69",
+        "3008EFA31592A3BF000B2E69",
+        "3008EFA71592A3BF000B2E69",
+        "3008EFAB1592A3BF000B2E69",
+        "3008EFAF1592A3BF000B2E69",
+        "3008EFB61592A3BF000B2E69",
+      );
+      "name" = "Resources";
+    };
+    "3008EFB61592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFB71592A3BF000B2E69",
+        "3008EFB91592A3BF000B2E69",
+      );
+      "name" = "splash";
+    };
+    "3008EFCC1592A3C0000B2E69" = {
+      "buildSettings" = {
+        "COPY_PHASE_STRIP" = "YES";
+        "GCC_VERSION" = "com.apple.compilers.llvm.clang.1_0";
+        "GCC_WARN_UNINITIALIZED_AUTOS" = "YES";
+        "VALIDATE_PRODUCT" = "YES";
+        "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+        "GCC_WARN_UNUSED_VARIABLE" = "YES";
+        "IPHONEOS_DEPLOYMENT_TARGET" = "3.0";
+        "GCC_C_LANGUAGE_STANDARD" = "gnu99";
+        "SDKROOT" = "iphoneos";
+        "GCC_WARN_ABOUT_RETURN_TYPE" = "YES";
+        "ALWAYS_SEARCH_USER_PATHS" = "NO";
+        "ARCHS" = (
+          "armv6",
+          "$(ARCHS_STANDARD_32_BIT)",
+        );
+      };
+      "isa" = "XCBuildConfiguration";
+      "name" = "Release";
+    };
+    "3008EFB81592A3BF000B2E69" = {
+      "fileRef" = "3008EFB71592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFB51592A3BF000B2E69" = {
+      "fileRef" = "3008EFB41592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFAA1592A3BF000B2E69" = {
+      "fileRef" = "3008EFA81592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFC81592A3C0000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFC91592A3C0000B2E69",
+      );
+      "name" = "Plugins";
+    };
+    "3008EF941592A3BF000B2E69" = {
+      "isa" = "PBXGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EF951592A3BF000B2E69",
+        "3008EF961592A3BF000B2E69",
+        "3008EF991592A3BF000B2E69",
+        "3008EF9B1592A3BF000B2E69",
+        "3008EFBD1592A3C0000B2E69",
+        "3008EFC61592A3C0000B2E69",
+        "3008EFCA1592A3C0000B2E69",
+      );
+      "name" = "Supporting Files";
+    };
+    "3008EFD01592A3E2000B2E69" = {
+      "path" = "www";
+      "isa" = "PBXFileReference";
+      "lastKnownFileType" = "folder";
+      "sourceTree" = "<group>";
+    };
+    "3008EF901592A3BF000B2E69" = {
+      "fileRef" = "3008EF8F1592A3BF000B2E69";
+      "isa" = "PBXBuildFile";
+    };
+    "3008EFA01592A3BF000B2E69" = {
+      "isa" = "PBXVariantGroup";
+      "sourceTree" = "<group>";
+      "children" = (
+        "3008EFA11592A3BF000B2E69",
+      );
+      "name" = "Localizable.strings";
+    };
+    "3008EF6E1592A3BF000B2E69" = {
+      "files" = (
+        "3008EF9A1592A3BF000B2E69",
+        "3008EFC21592A3C0000B2E69",
+        "3008EFC51592A3C0000B2E69",
+      );
+      "buildActionMask" = "2147483647";
+      "isa" = "PBXSourcesBuildPhase";
+      "runOnlyForDeploymentPostprocessing" = "0";
+    };
+  };
+  "objectVersion" = "46";
+  "rootObject" = "3008EF691592A3BF000B2E69";
+}
++ rm iOS-project/Twitter.xcodeproj/project.pbxproj.json
++ setup-plists
++ json2plist
++ json-print /Users/johnnyclem/WebApps/TabBarSample/config.json package myIOSConfig plists Cordova
+/Users/johnnyclem/WebApps/TabBarSample/config.json: package.myIOSConfig.plists.Cordova is undefined
++ rm myCordova.plist
++ json-print /Users/johnnyclem/WebApps/TabBarSample/config.json package myIOSConfig plists info
++ json2plist
+/Users/johnnyclem/WebApps/TabBarSample/config.json: package.myIOSConfig.plists.info is undefined
++ rm myInfo.plist
++ cat
++ find iOS-project
+iOS-project
+iOS-project/cordova
+iOS-project/cordova/debug
+iOS-project/cordova/emulate
+iOS-project/cordova/log
+iOS-project/Twitter
+iOS-project/Twitter/Classes
+iOS-project/Twitter/Classes/AppDelegate.h
+iOS-project/Twitter/Classes/AppDelegate.m
+iOS-project/Twitter/Classes/MainViewController.h
+iOS-project/Twitter/Classes/MainViewController.m
+iOS-project/Twitter/Classes/MainViewController.xib
+iOS-project/Twitter/Cordova.plist
+iOS-project/Twitter/en.lproj
+iOS-project/Twitter/en.lproj/InfoPlist.strings
+iOS-project/Twitter/main.m
+iOS-project/Twitter/Plugins
+iOS-project/Twitter/Plugins/README
+iOS-project/Twitter/Resources
+iOS-project/Twitter/Resources/Capture.bundle
+iOS-project/Twitter/Resources/Capture.bundle/controls_bg.png
+iOS-project/Twitter/Resources/Capture.bundle/controls_bg@2x.png
+iOS-project/Twitter/Resources/Capture.bundle/controls_bg@2x~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/controls_bg~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/microphone.png
+iOS-project/Twitter/Resources/Capture.bundle/microphone@2x.png
+iOS-project/Twitter/Resources/Capture.bundle/microphone@2x~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/microphone~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/record_button.png
+iOS-project/Twitter/Resources/Capture.bundle/record_button@2x.png
+iOS-project/Twitter/Resources/Capture.bundle/record_button@2x~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/record_button~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/recording_bg.png
+iOS-project/Twitter/Resources/Capture.bundle/recording_bg@2x.png
+iOS-project/Twitter/Resources/Capture.bundle/recording_bg@2x~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/recording_bg~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/stop_button.png
+iOS-project/Twitter/Resources/Capture.bundle/stop_button@2x.png
+iOS-project/Twitter/Resources/Capture.bundle/stop_button@2x~ipad.png
+iOS-project/Twitter/Resources/Capture.bundle/stop_button~ipad.png
+iOS-project/Twitter/Resources/de.lproj
+iOS-project/Twitter/Resources/de.lproj/Localizable.strings
+iOS-project/Twitter/Resources/en.lproj
+iOS-project/Twitter/Resources/en.lproj/Localizable.strings
+iOS-project/Twitter/Resources/es.lproj
+iOS-project/Twitter/Resources/es.lproj/Localizable.strings
+iOS-project/Twitter/Resources/icons
+iOS-project/Twitter/Resources/icons/icon-72.png
+iOS-project/Twitter/Resources/icons/icon-Small-50.png
+iOS-project/Twitter/Resources/icons/icon-Small.png
+iOS-project/Twitter/Resources/icons/icon-Small@2x.png
+iOS-project/Twitter/Resources/icons/icon.png
+iOS-project/Twitter/Resources/icons/icon@2x.png
+iOS-project/Twitter/Resources/se.lproj
+iOS-project/Twitter/Resources/se.lproj/Localizable.strings
+iOS-project/Twitter/Resources/splash
+iOS-project/Twitter/Resources/splash/Default@2x~iphone.png
+iOS-project/Twitter/Resources/splash/Default~iphone.png
+iOS-project/Twitter/Twitter-info.plist
+iOS-project/Twitter/Twitter-Prefix.pch
+iOS-project/Twitter/verify.sh
+iOS-project/Twitter.xcodeproj
+iOS-project/Twitter.xcodeproj/project.pbxproj
+iOS-project/Twitter.xcodeproj/project.pbxproj.xml1
+iOS-project/www
+iOS-project/www/bootstrap.js
+iOS-project/www/cordova-1.9.0.js
+iOS-project/www/core.js
+iOS-project/www/d8-0.2.0.min.js
+iOS-project/www/index.html
+iOS-project/www/jquery-1.7.1.min.js
+iOS-project/www/jquery_mobile.js
+iOS-project/www/jquery_mobile_plugins.js
+iOS-project/www/TabBarSample_App.js
+iOS-project/www/theme
+iOS-project/www/theme/images
+iOS-project/www/theme/images/ajax-loader.gif
+iOS-project/www/theme/images/ajax-loader.png
+iOS-project/www/theme/images/Icon-72.png
+iOS-project/www/theme/images/Icon.png
+iOS-project/www/theme/images/Icon@2x.png
+iOS-project/www/theme/images/icons-18-black.png
+iOS-project/www/theme/images/icons-18-white.png
+iOS-project/www/theme/images/icons-36-black.png
+iOS-project/www/theme/images/icons-36-white.png
+iOS-project/www/theme/jquery.mobile-1.1.0.min.css
+iOS-project/www/theme/jquery_mobile_plugins.css
+iOS-project/www/theme/style.css
+iOS-project/www/theme/tmp.css
+iOS-project/www/ui.js
+iOS-project/www/underscore-min.js
++ cd iOS-project
++ gsedi cordova/debug 's/^xcodebuild/exec &/'
++ gsedi cordova/debug 's/^SDK=/# &/'
++ SDK=iphonesimulator5.1
++ sh cordova/debug /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project Twitter
+Build settings from command line:
+    SDKROOT = iphonesimulator5.1
+
+=== CLEAN NATIVE TARGET Twitter OF PROJECT Twitter WITH THE DEFAULT CONFIGURATION (Release) ===
+Check dependencies
+
+Clean.Remove clean build/Release-iphonesimulator/Twitter.app
+    builtin-rm -rf /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+Clean.Remove clean /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch.pth
+    builtin-rm -rf /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch.pth
+
+Clean.Remove clean build/Release-iphonesimulator/Twitter.app.dSYM
+    builtin-rm -rf /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app.dSYM
+
+Clean.Remove clean build/Release-iphonesimulator/Twitter.app.dSYM
+    builtin-rm -rf /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app.dSYM
+
+Clean.Remove clean build/Twitter.build/Release-iphonesimulator/Twitter.build
+    builtin-rm -rf /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build
+
+
+** CLEAN SUCCEEDED **
+
+
+=== BUILD NATIVE TARGET Twitter OF PROJECT Twitter WITH THE DEFAULT CONFIGURATION (Release) ===
+Check dependencies
+
+ProcessInfoPlistFile build/Release-iphonesimulator/Twitter.app/Info.plist Twitter/Twitter-Info.plist
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-infoPlistUtility Twitter/Twitter-Info.plist -genpkginfo /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/Info.plist
+
+ProcessPCH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch.pth Twitter/Twitter-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv LANG en_US.US-ASCII
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DNDEBUG=1, -DCORDOVA_FRAMEWORK=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Twitter.hmap -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/include -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources/i386 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources -F/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator -F/Users/Shared/Cordova/Frameworks --serialize-diagnostics /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch.dia -c /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Twitter-Prefix.pch -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch.d
+
+CompileC build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/main.o Twitter/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv LANG en_US.US-ASCII
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DNDEBUG=1, -DCORDOVA_FRAMEWORK=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Twitter.hmap -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/include -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources/i386 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources -F/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator -F/Users/Shared/Cordova/Frameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch -MMD -MT dependencies -MF /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/main.d --serialize-diagnostics /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/main.dia -c /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/main.m -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/main.o
+
+CompileC build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/MainViewController.o Twitter/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv LANG en_US.US-ASCII
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DNDEBUG=1, -DCORDOVA_FRAMEWORK=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Twitter.hmap -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/include -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources/i386 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources -F/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator -F/Users/Shared/Cordova/Frameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch -MMD -MT dependencies -MF /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/MainViewController.d --serialize-diagnostics /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/MainViewController.dia -c /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Classes/MainViewController.m -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/MainViewController.o
+
+CompileC build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/AppDelegate.o Twitter/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv LANG en_US.US-ASCII
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DNDEBUG=1, -DCORDOVA_FRAMEWORK=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Twitter.hmap -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/include -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources/i386 -I/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources -F/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator -F/Users/Shared/Cordova/Frameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Twitter-Prefix-adervjiealkaaderfwcawzlntdcd/Twitter-Prefix.pch -MMD -MT dependencies -MF /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/AppDelegate.dia -c /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Classes/AppDelegate.m -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/AppDelegate.o
+
+Ld build/Release-iphonesimulator/Twitter.app/Twitter normal i386
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv MACOSX_DEPLOYMENT_TARGET 10.6
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -L/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator -F/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator -F/Users/Shared/Cordova/Frameworks -filelist /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/Twitter.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -Xlinker -no_implicit_dylibs -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework AudioToolbox -framework AVFoundation -framework CoreLocation -framework MediaPlayer -framework QuartzCore -framework SystemConfiguration -framework MobileCoreServices -framework CoreMedia -framework Cordova -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/Twitter
+
+GenerateDSYMFile build/Release-iphonesimulator/Twitter.app.dSYM build/Release-iphonesimulator/Twitter.app/Twitter
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/dsymutil /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/Twitter -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app.dSYM
+
+CopyStringsFile build/Release-iphonesimulator/Twitter.app/en.lproj/InfoPlist.strings Twitter/en.lproj/InfoPlist.strings
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/en.lproj -- Twitter/en.lproj/InfoPlist.strings
+
+CopyStringsFile build/Release-iphonesimulator/Twitter.app/en.lproj/Localizable.strings Twitter/Resources/en.lproj/Localizable.strings
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/en.lproj -- Twitter/Resources/en.lproj/Localizable.strings
+
+CopyStringsFile build/Release-iphonesimulator/Twitter.app/es.lproj/Localizable.strings Twitter/Resources/es.lproj/Localizable.strings
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/es.lproj -- Twitter/Resources/es.lproj/Localizable.strings
+
+CopyStringsFile build/Release-iphonesimulator/Twitter.app/de.lproj/Localizable.strings Twitter/Resources/de.lproj/Localizable.strings
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/de.lproj -- Twitter/Resources/de.lproj/Localizable.strings
+
+CopyStringsFile build/Release-iphonesimulator/Twitter.app/se.lproj/Localizable.strings Twitter/Resources/se.lproj/Localizable.strings
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/se.lproj -- Twitter/Resources/se.lproj/Localizable.strings
+
+CpResource Twitter/Resources/icons/icon.png build/Release-iphonesimulator/Twitter.app/icon.png
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Resources/icons/icon.png /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CpResource "Twitter/Resources/icons/icon@2x.png" "build/Release-iphonesimulator/Twitter.app/icon@2x.png"
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip "/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Resources/icons/icon@2x.png" /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CpResource Twitter/Resources/icons/icon-72.png build/Release-iphonesimulator/Twitter.app/icon-72.png
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Resources/icons/icon-72.png /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CpResource "Twitter/Resources/splash/Default@2x~iphone.png" "build/Release-iphonesimulator/Twitter.app/Default@2x~iphone.png"
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip "/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Resources/splash/Default@2x~iphone.png" /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CpResource "Twitter/Resources/splash/Default~iphone.png" "build/Release-iphonesimulator/Twitter.app/Default~iphone.png"
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip "/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Resources/splash/Default~iphone.png" /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CpResource Twitter/Resources/Capture.bundle build/Release-iphonesimulator/Twitter.app/Capture.bundle
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Resources/Capture.bundle /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CopyPlistFile build/Release-iphonesimulator/Twitter.app/Cordova.plist Twitter/Cordova.plist
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copyPlist --convert binary1 --outdir /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app -- Twitter/Cordova.plist
+
+CpResource www build/Release-iphonesimulator/Twitter.app/www
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/www /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+CompileXIB Twitter/Classes/MainViewController.xib
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.0
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..
+    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/MainViewController.nib /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Classes/MainViewController.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
+
+GenerateDSYMFile build/Release-iphonesimulator/Twitter.app.dSYM build/Release-iphonesimulator/Twitter.app/Twitter
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/dsymutil /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app/Twitter -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app.dSYM
+
+PhaseScriptExecution "Run Script" build/Twitter.build/Release-iphonesimulator/Twitter.build/Script-3008EF731592A3BF000B2E69.sh
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv ACTION build
+    setenv ALTERNATE_GROUP staff
+    setenv ALTERNATE_MODE u+w,go-w,a+rX
+    setenv ALTERNATE_OWNER johnnyclem
+    setenv ALWAYS_SEARCH_USER_PATHS YES
+    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer
+    setenv APPLE_INTERNAL_DIR /AppleInternal
+    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation
+    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library
+    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools
+    setenv APPLY_RULES_IN_COPY_FILES NO
+    setenv ARCHS i386
+    setenv ARCHS_STANDARD_32_BIT i386
+    setenv ARCHS_UNIVERSAL_IPHONE_OS i386
+    setenv AVAILABLE_PLATFORMS "iphonesimulator macosx iphoneos"
+    setenv BUILD_COMPONENTS "headers build"
+    setenv BUILD_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build
+    setenv BUILD_ROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build
+    setenv BUILD_STYLE 
+    setenv BUILD_VARIANTS normal
+    setenv BUILT_PRODUCTS_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator
+    setenv CACHE_ROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501
+    setenv CCHROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501
+    setenv CHMOD /bin/chmod
+    setenv CHOWN /usr/sbin/chown
+    setenv CLASS_FILE_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/JavaClasses
+    setenv CLEAN_PRECOMPS YES
+    setenv CLONE_HEADERS NO
+    setenv CODESIGNING_FOLDER_PATH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+    setenv COMMAND_MODE legacy
+    setenv COMPOSITE_SDK_DIRS /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/CompositeSDKs
+    setenv COMPRESS_PNG_FILES YES
+    setenv CONFIGURATION Release
+    setenv CONFIGURATION_BUILD_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator
+    setenv CONFIGURATION_TEMP_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator
+    setenv CONTENTS_FOLDER_PATH Twitter.app
+    setenv COPYING_PRESERVES_HFS_DATA NO
+    setenv COPY_PHASE_STRIP YES
+    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES
+    setenv CORDOVALIB /Users/johnnyclem/Documents/CordovaLib
+    setenv CP /bin/cp
+    setenv CURRENT_ARCH i386
+    setenv CURRENT_VARIANT normal
+    setenv DEAD_CODE_STRIPPING NO
+    setenv DEBUGGING_SYMBOLS YES
+    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym
+    setenv DEFAULT_COMPILER com.apple.compilers.llvm.clang.1_0
+    setenv DEPLOYMENT_LOCATION NO
+    setenv DEPLOYMENT_POSTPROCESSING NO
+    setenv DERIVED_FILES_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources
+    setenv DERIVED_FILE_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources
+    setenv DERIVED_SOURCES_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/DerivedSources
+    setenv DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Applications
+    setenv DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin
+    setenv DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer
+    setenv DEVELOPER_FRAMEWORKS_DIR /Applications/Xcode.app/Contents/Developer/Library/Frameworks
+    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Applications/Xcode.app/Contents/Developer/Library/Frameworks\""
+    setenv DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/Developer/Library
+    setenv DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
+    setenv DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Tools
+    setenv DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr
+    setenv DEVELOPMENT_LANGUAGE English
+    setenv DOCUMENTATION_FOLDER_PATH Twitter.app/English.lproj/Documentation
+    setenv DO_HEADER_SCANNING_IN_JAM NO
+    setenv DSTROOT /tmp/Twitter.dst
+    setenv DT_TOOLCHAIN_DIR /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+    setenv DWARF_DSYM_FILE_NAME Twitter.app.dSYM
+    setenv DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT NO
+    setenv DWARF_DSYM_FOLDER_PATH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator
+    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator
+    setenv ENABLE_HEADER_DEPENDENCIES YES
+    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".DS_Store .svn .git .hg CVS"
+    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj"
+    setenv EXECUTABLES_FOLDER_PATH Twitter.app/Executables
+    setenv EXECUTABLE_FOLDER_PATH Twitter.app
+    setenv EXECUTABLE_NAME Twitter
+    setenv EXECUTABLE_PATH Twitter.app/Twitter
+    setenv FILE_LIST /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects/LinkFileList
+    setenv FIXED_FILES_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/FixedFiles
+    setenv FRAMEWORKS_FOLDER_PATH Twitter.app/Frameworks
+    setenv FRAMEWORK_FLAG_PREFIX -framework
+    setenv FRAMEWORK_SEARCH_PATHS "\"/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator\" /Users/Shared/Cordova/Frameworks"
+    setenv FRAMEWORK_VERSION A
+    setenv FULL_PRODUCT_NAME Twitter.app
+    setenv GCC3_VERSION 3.3
+    setenv GCC_C_LANGUAGE_STANDARD gnu99
+    setenv GCC_DYNAMIC_NO_PIC NO
+    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES
+    setenv GCC_OBJC_LEGACY_DISPATCH YES
+    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"
+    setenv GCC_PRECOMPILE_PREFIX_HEADER YES
+    setenv GCC_PREFIX_HEADER Twitter/Twitter-Prefix.pch
+    setenv GCC_PREPROCESSOR_DEFINITIONS "NDEBUG=1, CORDOVA_FRAMEWORK=1"
+    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES
+    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO
+    setenv GCC_VERSION com.apple.compilers.llvm.clang.1_0
+    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvm_clang_1_0
+    setenv GCC_WARN_ABOUT_RETURN_TYPE YES
+    setenv GCC_WARN_UNINITIALIZED_AUTOS YES
+    setenv GCC_WARN_UNUSED_VARIABLE YES
+    setenv GENERATE_MASTER_OBJECT_FILE NO
+    setenv GENERATE_PKGINFO_FILE YES
+    setenv GENERATE_PROFILING_CODE NO
+    setenv GID 20
+    setenv GROUP staff
+    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES
+    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES
+    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES
+    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES
+    setenv HEADER_SEARCH_PATHS "\"/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/include\" "
+    setenv ICONV /usr/bin/iconv
+    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES
+    setenv INFOPLIST_FILE Twitter/Twitter-Info.plist
+    setenv INFOPLIST_OUTPUT_FORMAT binary
+    setenv INFOPLIST_PATH Twitter.app/Info.plist
+    setenv INFOPLIST_PREPROCESS NO
+    setenv INFOSTRINGS_PATH Twitter.app/English.lproj/InfoPlist.strings
+    setenv INSTALL_DIR /tmp/Twitter.dst/Applications
+    setenv INSTALL_GROUP staff
+    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX
+    setenv INSTALL_OWNER johnnyclem
+    setenv INSTALL_PATH /Applications
+    setenv INSTALL_ROOT /tmp/Twitter.dst
+    setenv IPHONEOS_DEPLOYMENT_TARGET 3.0
+    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"
+    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub
+    setenv JAVA_ARCHIVE_CLASSES YES
+    setenv JAVA_ARCHIVE_TYPE JAR
+    setenv JAVA_COMPILER /usr/bin/javac
+    setenv JAVA_FOLDER_PATH Twitter.app/Java
+    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources
+    setenv JAVA_JAR_FLAGS cv
+    setenv JAVA_SOURCE_SUBDIR .
+    setenv JAVA_USE_DEPENDENCIES YES
+    setenv JAVA_ZIP_FLAGS -urg
+    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"
+    setenv KEEP_PRIVATE_EXTERNS NO
+    setenv LD_GENERATE_MAP_FILE NO
+    setenv LD_MAP_FILE_PATH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Twitter-LinkMap-normal-i386.txt
+    setenv LD_NO_PIE NO
+    setenv LEGACY_DEVELOPER_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer
+    setenv LEX lex
+    setenv LIBRARY_FLAG_NOSPACE YES
+    setenv LIBRARY_FLAG_PREFIX -l
+    setenv LIBRARY_SEARCH_PATHS "\"/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator\" "
+    setenv LINKER_DISPLAYS_MANGLED_NAMES NO
+    setenv LINK_FILE_LIST_normal_i386 /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal/i386/Twitter.LinkFileList
+    setenv LINK_WITH_STANDARD_LIBRARIES YES
+    setenv LOCALIZED_RESOURCES_FOLDER_PATH Twitter.app/English.lproj
+    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities
+    setenv LOCAL_APPS_DIR /Applications
+    setenv LOCAL_DEVELOPER_DIR /Library/Developer
+    setenv LOCAL_LIBRARY_DIR /Library
+    setenv MACH_O_TYPE mh_execute
+    setenv MACOSX_DEPLOYMENT_TARGET 10.6
+    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 11E2620
+    setenv MAC_OS_X_VERSION_ACTUAL 1074
+    setenv MAC_OS_X_VERSION_MAJOR 1070
+    setenv MAC_OS_X_VERSION_MINOR 0704
+    setenv NATIVE_ARCH i386
+    setenv NATIVE_ARCH_32_BIT i386
+    setenv NATIVE_ARCH_64_BIT x86_64
+    setenv NATIVE_ARCH_ACTUAL x86_64
+    setenv NO_COMMON YES
+    setenv OBJC_ABI_VERSION 2
+    setenv OBJECT_FILE_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects
+    setenv OBJECT_FILE_DIR_normal /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Objects-normal
+    setenv OBJROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build
+    setenv ONLY_ACTIVE_ARCH NO
+    setenv OPTIMIZATION_LEVEL 0
+    setenv OS MACOS
+    setenv OSAC /usr/bin/osacompile
+    setenv OTHER_LDFLAGS "-weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem"
+    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application
+    setenv PASCAL_STRINGS YES
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Applications/Xcode.app/Contents/Developer/Headers /Applications/Xcode.app/Contents/Developer/SDKs /Applications/Xcode.app/Contents/Developer/Platforms"
+    setenv PBDEVELOPMENTPLIST_PATH Twitter.app/pbdevelopment.plist
+    setenv PFE_FILE_C_DIALECTS objective-c
+    setenv PKGINFO_FILE_PATH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/PkgInfo
+    setenv PKGINFO_PATH Twitter.app/PkgInfo
+    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications
+    setenv PLATFORM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin
+    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library
+    setenv PLATFORM_DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs
+    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools
+    setenv PLATFORM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr
+    setenv PLATFORM_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform
+    setenv PLATFORM_NAME iphonesimulator
+    setenv PLATFORM_PREFERRED_ARCH i386
+    setenv PLATFORM_VERSION_AVAILABILITY_H_FORMAT 50100
+    setenv PLIST_FILE_OUTPUT_FORMAT binary
+    setenv PLUGINS_FOLDER_PATH Twitter.app/PlugIns
+    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES
+    setenv PRECOMP_DESTINATION_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/PrefixHeaders
+    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO
+    setenv PRIVATE_HEADERS_FOLDER_PATH Twitter.app/PrivateHeaders
+    setenv PRODUCT_NAME Twitter
+    setenv PRODUCT_SETTINGS_PATH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter/Twitter-Info.plist
+    setenv PRODUCT_TYPE com.apple.product-type.application
+    setenv PROFILING_CODE NO
+    setenv PROJECT Twitter
+    setenv PROJECT_DERIVED_FILE_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/DerivedSources
+    setenv PROJECT_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PROJECT_FILE_PATH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/Twitter.xcodeproj
+    setenv PROJECT_NAME Twitter
+    setenv PROJECT_TEMP_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build
+    setenv PUBLIC_HEADERS_FOLDER_PATH Twitter.app/Headers
+    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES
+    setenv REMOVE_CVS_FROM_RESOURCES YES
+    setenv REMOVE_GIT_FROM_RESOURCES YES
+    setenv REMOVE_HG_FROM_RESOURCES YES
+    setenv REMOVE_SVN_FROM_RESOURCES YES
+    setenv REZ_COLLECTOR_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/ResourceManagerResources
+    setenv REZ_OBJECTS_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/ResourceManagerResources/Objects
+    setenv REZ_SEARCH_PATHS "\"/var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator\" "
+    setenv RUN_CLANG_STATIC_ANALYZER NO
+    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO
+    setenv SCRIPTS_FOLDER_PATH Twitter.app/Scripts
+    setenv SCRIPT_INPUT_FILE_COUNT 0
+    setenv SCRIPT_OUTPUT_FILE_COUNT 0
+    setenv SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
+    setenv SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
+    setenv SDK_NAME iphonesimulator5.1
+    setenv SDK_PRODUCT_BUILD_VERSION 9B176
+    setenv SED /usr/bin/sed
+    setenv SEPARATE_STRIP NO
+    setenv SEPARATE_SYMBOL_EDIT NO
+    setenv SET_DIR_MODE_OWNER_GROUP YES
+    setenv SET_FILE_MODE_OWNER_GROUP NO
+    setenv SHALLOW_BUNDLE YES
+    setenv SHARED_DERIVED_FILE_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/DerivedSources
+    setenv SHARED_FRAMEWORKS_FOLDER_PATH Twitter.app/SharedFrameworks
+    setenv SHARED_PRECOMPS_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders
+    setenv SHARED_SUPPORT_FOLDER_PATH Twitter.app/SharedSupport
+    setenv SKIP_INSTALL NO
+    setenv SOURCE_ROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv SRCROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv STRINGS_FILE_OUTPUT_ENCODING binary
+    setenv STRIP_INSTALLED_PRODUCT YES
+    setenv STRIP_STYLE all
+    setenv SUPPORTED_DEVICE_FAMILIES "1 2"
+    setenv SUPPORTED_PLATFORMS "iphonesimulator iphoneos"
+    setenv SYMROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build
+    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities
+    setenv SYSTEM_APPS_DIR /Applications
+    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices
+    setenv SYSTEM_DEMOS_DIR /Applications/Extras
+    setenv SYSTEM_DEVELOPER_APPS_DIR /Applications/Xcode.app/Contents/Developer/Applications
+    setenv SYSTEM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin
+    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built Examples"
+    setenv SYSTEM_DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer
+    setenv SYSTEM_DEVELOPER_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library"
+    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Graphics Tools"
+    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Java Tools"
+    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Performance Tools"
+    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes"
+    setenv SYSTEM_DEVELOPER_TOOLS /Applications/Xcode.app/Contents/Developer/Tools
+    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/documentation/DeveloperTools"
+    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes/DeveloperTools"
+    setenv SYSTEM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr
+    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Applications/Xcode.app/Contents/Developer/Applications/Utilities
+    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation
+    setenv SYSTEM_LIBRARY_DIR /System/Library
+    setenv TARGETED_DEVICE_FAMILY 1,2
+    setenv TARGETNAME Twitter
+    setenv TARGET_BUILD_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator
+    setenv TARGET_NAME Twitter
+    setenv TARGET_TEMP_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build
+    setenv TEMP_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build
+    setenv TEMP_FILES_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build
+    setenv TEMP_FILE_DIR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build
+    setenv TEMP_ROOT /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build
+    setenv TEST_AFTER_BUILD NO
+    setenv UID 501
+    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH Twitter.app
+    setenv UNSTRIPPED_PRODUCT NO
+    setenv USER johnnyclem
+    setenv USER_APPS_DIR /Users/johnnyclem/Applications
+    setenv USER_LIBRARY_DIR /Users/johnnyclem/Library
+    setenv USE_DYNAMIC_NO_PIC YES
+    setenv USE_HEADERMAP YES
+    setenv USE_HEADER_SYMLINKS NO
+    setenv VALIDATE_PRODUCT YES
+    setenv VALID_ARCHS i386
+    setenv VERBOSE_PBXCP NO
+    setenv VERSIONPLIST_PATH Twitter.app/version.plist
+    setenv VERSION_INFO_BUILDER johnnyclem
+    setenv VERSION_INFO_FILE Twitter_vers.c
+    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:Twitter  PROJECT:Twitter-\""
+    setenv WRAPPER_EXTENSION app
+    setenv WRAPPER_NAME Twitter.app
+    setenv WRAPPER_SUFFIX .app
+    setenv XCODE_APP_SUPPORT_DIR /Applications/Xcode.app/Contents/Developer/Library/Xcode
+    setenv XCODE_PRODUCT_BUILD_VERSION 4E2002
+    setenv XCODE_VERSION_ACTUAL 0432
+    setenv XCODE_VERSION_MAJOR 0400
+    setenv XCODE_VERSION_MINOR 0430
+    setenv YACC yacc
+    /bin/sh -c /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Twitter.build/Release-iphonesimulator/Twitter.build/Script-3008EF731592A3BF000B2E69.sh
+// {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+
+Touch build/Release-iphonesimulator/Twitter.app
+    cd /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project
+    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/johnnyclem/WebApps/Espresso/package/Cordova/iOS/bin::/Users/johnnyclem/WebApps/Espresso/package/bin::/Applications/SenchaSDKTools-2.0.0-beta3:/Users/johnnyclem/Android/android-sdk-macosx/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/sm/bin:/opt/sm/pkg/active/bin:/opt/sm/pkg/active/sbin:/Users/johnnyclem/.rvm/bin:/Users/johnnyclem/.ec2/bin"
+    /usr/bin/touch -c /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3/iOS-project/build/Release-iphonesimulator/Twitter.app
+
+
+** BUILD SUCCEEDED **
+
++ cd /Users/johnnyclem/WebApps/Espresso/package/../submodules/github/phonegap/ios-sim
++ rake install prefix=/Users/johnnyclem/WebApps/Espresso/package/phonegap-ios/ios-sim
+xcodebuild -project ios-sim.xcodeproj -configuration Release SYMROOT=build
+Build settings from command line:
+    SYMROOT = build
+
+=== BUILD NATIVE TARGET ios-sim OF PROJECT ios-sim WITH CONFIGURATION Release ===
+Check dependencies
+
+ProcessPCH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch.pth ios-sim_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/i386 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks --serialize-diagnostics /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/ios-sim_Prefix.pch -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch.d
+
+ProcessPCH /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch.pth ios-sim_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/x86_64 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks --serialize-diagnostics /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/ios-sim_Prefix.pch -o /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch.d
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/iPhoneSimulator.o Source/iPhoneSimulator.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/x86_64 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/iPhoneSimulator.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/iPhoneSimulator.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/iPhoneSimulator.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/iPhoneSimulator.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/nsprintf.o Source/nsprintf.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/x86_64 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/nsprintf.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/nsprintf.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/nsprintf.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/nsprintf.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/main.o Source/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/x86_64 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/main.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/main.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/main.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/NSString+expandPath.o Source/NSString+expandPath.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/x86_64 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-ccuflldbwvnakvfhkedygibeovpf/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/NSString+expandPath.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/NSString+expandPath.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/NSString+expandPath.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/NSString+expandPath.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/iPhoneSimulator.o Source/iPhoneSimulator.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/i386 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/iPhoneSimulator.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/iPhoneSimulator.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/iPhoneSimulator.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/iPhoneSimulator.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/main.o Source/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/i386 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/main.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/main.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/main.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/NSString+expandPath.o Source/NSString+expandPath.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/i386 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/NSString+expandPath.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/NSString+expandPath.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/NSString+expandPath.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/NSString+expandPath.o
+
+CompileC build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/nsprintf.o Source/nsprintf.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv LANG en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -fvisibility=hidden -Wno-conversion -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-generated-files.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-own-target-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-all-target-headers.hmap -iquote /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/ios-sim-project-headers.hmap -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/include -I. -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources/i386 -I/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/DerivedSources -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -include /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ios-sim_Prefix-aesvzwpvtegamhgvotrrcnamnbmx/ios-sim_Prefix.pch -MMD -MT dependencies -MF /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/nsprintf.d --serialize-diagnostics /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/nsprintf.dia -c /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/Source/nsprintf.m -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/nsprintf.o
+
+Ld build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/ios-sim normal i386
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv MACOSX_DEPLOYMENT_TARGET 10.6
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -L/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -filelist /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/ios-sim.LinkFileList -mmacosx-version-min=10.6 -framework AppKit -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -framework iPhoneSimulatorRemoteClient -Wl,-rpath -Wl,/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -Wl,-rpath -Wl,/Applications/Xcode.app/Contents/Developer/../OtherFrameworks -framework Foundation -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/ios-sim
+
+Ld build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/ios-sim normal x86_64
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    setenv MACOSX_DEPLOYMENT_TARGET 10.6
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -L/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -filelist /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/ios-sim.LinkFileList -mmacosx-version-min=10.6 -framework AppKit -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -framework iPhoneSimulatorRemoteClient -Wl,-rpath -Wl,/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks -Wl,-rpath -Wl,/Applications/Xcode.app/Contents/Developer/../OtherFrameworks -framework Foundation -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/ios-sim
+
+CreateUniversalBinary build/Release/ios-sim normal "x86_64 i386"
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    /usr/bin/lipo -create /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/x86_64/ios-sim /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/ios-sim.build/Release/ios-sim.build/Objects-normal/i386/ios-sim -output /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/ios-sim
+
+GenerateDSYMFile build/Release/ios-sim.dSYM build/Release/ios-sim
+    cd /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim
+    /Applications/Xcode.app/Contents/Developer/usr/bin/dsymutil /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/ios-sim -o /Users/johnnyclem/WebApps/Espresso/submodules/github/phonegap/ios-sim/build/Release/ios-sim.dSYM
+
+
+** BUILD SUCCEEDED **
+
+mkdir -p /Users/johnnyclem/WebApps/Espresso/package/phonegap-ios/ios-sim/bin
+cp build/Release/ios-sim /Users/johnnyclem/WebApps/Espresso/package/phonegap-ios/ios-sim/bin
++ sim=/Users/johnnyclem/WebApps/Espresso/package/phonegap-ios/ios-sim/bin/ios-sim
++ chmod 0755 /Users/johnnyclem/WebApps/Espresso/package/phonegap-ios/ios-sim/bin/ios-sim
++ printf '\n\e[1;33mAbort debug output and return to shell with \e[35m^C\e[33m.\e[m\n\n'
+
+[1;33mAbort debug output and return to shell with [35m^C[33m.[m
+
++ /Users/johnnyclem/WebApps/Espresso/package/phonegap-ios/ios-sim/bin/ios-sim launch build/Release-iphonesimulator/Twitter.app
+[DEBUG] 2012-07-20 00:47:02.844 Twitter[25457:13403] Multi-tasking -> Device: YES, App: YES
+
+[DEBUG] Terminating in response to SpringBoard's termination.
+
++ cd /Users/johnnyclem/WebApps/TabBarSample/build/1342770413396
++ rm -fR /var/folders/nk/6s0l0syd2pxcs0wgfy65fpjc0000gn/T/Espresso-package-cordova-iOS.XXXXXXXXXX.nnGNe5O3
